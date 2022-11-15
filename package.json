@@ -1,10 +1,15 @@
 {
-  "name": "common",
+  "name": "@rvmicroservice/common",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build/**/*"
+  ],
   "scripts": {
-    "build": "tsc ./src/*"
+    "clean": "rimraf ./build/*",
+    "build": "npm run clean && tsc"
   },
   "repository": {
     "type": "git",
@@ -20,5 +25,14 @@
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@types/cookie-session": "^2.0.44",
+    "@types/express": "^4.17.14",
+    "@types/jsonwebtoken": "^8.5.9",
+    "cookie-session": "^2.0.0",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1"
   }
 }
