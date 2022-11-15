@@ -1,0 +1,24 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc ./src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rijuvijayan87/common.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rijuvijayan87/common/issues"
+  },
+  "homepage": "https://github.com/rijuvijayan87/common#readme",
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.4"
+  }
+}
