@@ -10,7 +10,7 @@ export abstract class EventListener<T extends Event> {
   abstract queueGroupName: string;
   abstract subject: T['subject'];
   abstract onMessage(data: T['data'], msg: Message): void;
-  private client: Stan;
+  protected client: Stan;
   private ackWait: number = 5 * 1000;
   constructor(client: Stan) {
     this.client = client;
