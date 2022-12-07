@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
+import { extractJWT } from '../libs/utils';
 
 interface User {
   email: string;
@@ -19,9 +20,7 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  const jwtTokenHeader = req.header('Authorization');
-
-  const jwtToken = jwtTokenHeader?.replace('Bearer ', '');
+  const jwtToken = extractJWT(req);
   if (!jwtToken) {
     return next();
   }
