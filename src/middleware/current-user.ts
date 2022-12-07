@@ -19,12 +19,13 @@ export const currentUser = (
   res: Response,
   next: NextFunction
 ) => {
-  const jwtToken = req.session?.jwt;
+  const jwtTokenHeader = req.header('Authorization');
+  const jwtToken = jwtTokenHeader?.replace('Bearer ', '');
   if (!jwtToken) {
     return next();
   }
   try {
-    const user = jwt.verify(req.session?.jwt, process.env.JWT_KEY!) as User;
+    const user = jwt.verify(jwtToken, process.env.JWT_KEY!) as User;
     req.currentUser = user;
   } catch (error) {}
 
